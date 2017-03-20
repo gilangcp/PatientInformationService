@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="PrescriptionDiagnoseTypes" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="PrescriptionDiagnoseTypes">
+    <complexType name="PrescriptionList">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="PrescriptionItem" type="tns:Prescription"/>
+        </sequence>
+    </complexType>
+    <complexType name="Prescription">
+        <all>
+            <element name="Description" type="string"/>
+            <element name="Quantity" type="int"/>
+        </all>
+    </complexType>
+    <complexType name="DiagnoseList">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="DiagnoseItem" type="tns:Diagnose"/>
+        </sequence>
+    </complexType>
+    <complexType name="Diagnose">
+        <all>
+            <element name="Description" type="string"/>
+            <element name="Quantity" type="int"/>
+        </all>
+    </complexType>
+</schema>

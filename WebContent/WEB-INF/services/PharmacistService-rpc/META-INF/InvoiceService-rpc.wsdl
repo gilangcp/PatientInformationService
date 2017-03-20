@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="InvoiceServiceWS" targetNamespace="InvoiceService/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:prc="PricingTypes" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="InvoiceService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import namespace="PricingTypes" schemaLocation="PricingTypes.xsd">
+    	</xsd:import></xsd:schema>
+  </types>
+  <message name="transactionRequest">
+    <part name="PriceList" type="prc:PriceList">
+    </part>
+  </message>
+  <message name="transactionResponse">
+    <part name="TransactionId" type="xsd:int">
+    </part>
+  </message>
+  <portType name="InvoiceServicePortType">
+    <operation name="CreateTransaction">
+      <input message="tns:transactionRequest">
+    </input>
+      <output message="tns:transactionResponse">
+    </output>
+    </operation>
+  </portType>
+  <binding name="InvoiceServiceBinding" type="tns:InvoiceServicePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="CreateTransaction">
+      <soap:operation soapAction="http://example.com/CreateTransaction"/>
+      <input>
+        <soap:body use="literal" namespace="InvoiceService/"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="InvoiceService/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="InvoiceService-rpc">
+    <port name="InvoiceServicePort" binding="tns:InvoiceServiceBinding">
+      <soap:address location="http://www.example.org/"/>
+    </port>
+  </service>
+</definitions>

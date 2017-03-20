@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="PricingService" targetNamespace="PricingService/" xmlns:prc="PricingTypes" xmlns:pdt="PrescriptionDiagnoseTypes" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="PricingService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import namespace="PricingTypes" schemaLocation="PricingTypes.xsd">
+    	</xsd:import></xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">	
+    	<xsd:import namespace="PrescriptionDiagnoseTypes" schemaLocation="PrescriptionDiagnoseTypes.xsd">
+    	</xsd:import></xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPricesRequest">
+    <wsdl:part name="PrescriptionList" type="pdt:PrescriptionList">
+    </wsdl:part>
+    <wsdl:part name="ExaminationList" type="pdt:DiagnoseList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetPricesResponse">
+    <wsdl:part name="PriceList" type="prc:PriceList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PricingService">
+    <wsdl:operation name="GetPrices">
+      <wsdl:input message="tns:GetPricesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:GetPricesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PricingServiceSOAP" type="tns:PricingService">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetPrices">
+      <soap:operation soapAction="http://www.example.org/PricingService/GetPrices"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="PricingService/"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="PricingService/"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PricingService-rpc">
+    <wsdl:port name="PricingServiceSOAP" binding="tns:PricingServiceSOAP">
+      <soap:address location="http://localhost:8080/TrialProjectWS/services/PricingService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

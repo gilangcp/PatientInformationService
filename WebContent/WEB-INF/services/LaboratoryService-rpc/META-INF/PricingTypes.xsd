@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="PricingTypes" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="PricingTypes">
+    <complexType name="PriceList">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="PriceItem" type="tns:Price"/>
+        </sequence>
+    </complexType>
+    <complexType name="Price">
+        <sequence>
+            <element name="ProductIdentifier" type="string"/>
+            <element name="Quantity" type="int"/>
+            <element name="Price" type="int"/>
+        </sequence>
+    </complexType>
+</schema>

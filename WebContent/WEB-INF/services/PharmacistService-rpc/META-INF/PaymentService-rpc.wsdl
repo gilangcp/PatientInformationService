@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="CashierService" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:prt="PricingTypes" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mh="CashierService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import namespace="PricingTypes" schemaLocation="PricingTypes.xsd">
+    	</xsd:import></xsd:schema>
+  </types>
+  <message name="paymentRequest">
+    <part name="patientId" type="xsd:string">
+    </part>
+  </message>
+  <message name="paymentResponse">
+    <part name="receipt" type="xsd:string">
+    </part>
+  </message>
+  <message name="notifyMedicineReadyRequest">
+    <part name="patientId" type="xsd:int">
+    </part>
+  </message>
+  <portType name="paymentServicePortType">
+    <operation name="DoPayment">
+      <input message="mh:paymentRequest">
+    </input>
+      <output message="mh:paymentResponse">
+    </output>
+    </operation>
+    <operation name="notifyMedicineReady">
+      <input message="mh:notifyMedicineReadyRequest">
+    </input>
+    </operation>
+  </portType>
+  <binding name="PaymentServiceBinding" type="mh:paymentServicePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="DoPayment">
+      <soap:operation soapAction="http://example.com/DoPayment"/>
+      <input>
+        <soap:body use="literal" namespace="CashierService"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="CashierService"/>
+      </output>
+    </operation>
+    <operation name="notifyMedicineReady">
+      <soap:operation soapAction="http://example.com/notifyMedicineReady"/>
+      <input>
+        <soap:body use="literal" namespace="CashierService"/>
+      </input>
+    </operation>
+  </binding>
+  <service name="PaymentService-rpc">
+    <port name="PaymentServicePort" binding="mh:PaymentServiceBinding">
+      <soap:address location="http://www.example.org/"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema 
+  	targetNamespace="PricingTypes"
+	xmlns:tns="PricingTypes" 
+    xmlns="http://www.w3.org/2001/XMLSchema">
+
+   <complexType name="PriceList">
+      <sequence>
+      	<element minOccurs="0" maxOccurs="unbounded" type="tns:Price" name="PriceItem"></element>
+      </sequence>
+    </complexType>
+
+	<complexType name="Price">
+	      <sequence>
+		    <element
+	          maxOccurs="1"
+	          minOccurs="1"
+	          name="ProductIdentifier"
+	          type="string"/>
+	        <element
+	          maxOccurs="1"
+	          minOccurs="1"
+	          name="Quantity"
+	          type="int"/>
+	        <element
+	          maxOccurs="1"
+	          minOccurs="1"
+	          name="Price"
+	          type="int"/>
+	      </sequence>
+	</complexType>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ 
+    
+    
+    
+</schema>

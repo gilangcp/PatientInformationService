@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions 
+targetNamespace="PatientService/" 
+xmlns:tns="PatientService/" 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PatientService" 
+xmlns:pdt="PrescriptionDiagnoseTypes">
+  
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import namespace="PrescriptionDiagnoseTypes"
+    		schemaLocation="PrescriptionDiagnoseTypes.xsd">
+    	</xsd:import></xsd:schema>
+  </wsdl:types>
+  
+  <wsdl:message name="GetPrescriptionAndDiagnosisDetailRequest">
+    <wsdl:part name="PatientID" type="xsd:string" />
+  </wsdl:message>
+  
+  <wsdl:message name="GetPrescriptionAndDiagnosisDetailResponse">
+    <wsdl:part name="Prescription" type="pdt:PrescriptionList"/>
+  </wsdl:message>
+  
+  
+  <wsdl:portType name="PatientServicePortType">
+    <wsdl:operation name="GetPrescriptionAndDiagnosisDetail">
+      <wsdl:input name="patientID" message="tns:GetPrescriptionAndDiagnosisDetailRequest"/>
+      <wsdl:output message="tns:GetPrescriptionAndDiagnosisDetailResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  
+  <wsdl:binding name="PatientServiceBinding" type="tns:PatientServicePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetPrescriptionAndDiagnosisDetail">
+      <soap:operation soapAction="http://www.example.org/PatientService/GetPrescriptionAndDiagnosisDetail"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="InvoiceService/"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="InvoiceService/"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  
+  
+  <wsdl:service name="PatientService-rpc">
+    <wsdl:port binding="tns:PatientServiceBinding" name="PatientServicePort">
+      <soap:address location="http://localhost:8080/TrialProjectWS/services/PatientService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

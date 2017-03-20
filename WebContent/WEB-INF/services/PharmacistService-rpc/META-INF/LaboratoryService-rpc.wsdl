@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="LaboratoryService" targetNamespace="LaboratoryService/" xmlns:pdt="PrescriptionDiagnoseTypes" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="LaboratoryService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import namespace="PrescriptionDiagnoseTypes" schemaLocation="PrescriptionDiagnoseTypes.xsd">
+    	</xsd:import></xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDiagnoseDetailResponse">
+    <wsdl:part name="DiagnoseList" type="pdt:DiagnoseList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetDiagnoseDetailRequest">
+    <wsdl:part name="PatientID" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="LaboratoryService">
+    <wsdl:operation name="GetDiagnoseDetail">
+      <wsdl:input name="PatientID" message="tns:GetDiagnoseDetailRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:GetDiagnoseDetailResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LaboratoryServiceSOAP" type="tns:LaboratoryService">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetDiagnoseDetail">
+      <soap:operation soapAction="http://www.example.org/LaboratoryService/GetExamDetail"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="LaboratoryService/"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="LaboratoryService/"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LaboratoryService-rpc">
+    <wsdl:port name="LaboratoryServiceSOAP" binding="tns:LaboratoryServiceSOAP">
+      <soap:address location="http://localhost:8080/TrialProjectWS/services/LaboratoryService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
