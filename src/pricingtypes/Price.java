@@ -20,7 +20,7 @@
         /* This type was generated from the piece of schema that had
                 name = Price
                 Namespace URI = PricingTypes
-                Namespace Prefix = ns2
+                Namespace Prefix = ns3
                 */
             
 
@@ -267,7 +267,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("PricingTypes")){
-                return "ns2";
+                return "ns3";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -525,7 +525,7 @@
                             if (!"Price".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (Price)pricingservice.ExtensionMapper.getTypeObject(
+                                return (Price)invoiceservice.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         

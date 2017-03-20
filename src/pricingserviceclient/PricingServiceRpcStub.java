@@ -432,7 +432,7 @@
         /* This type was generated from the piece of schema that had
                 name = Price
                 Namespace URI = PricingTypes
-                Namespace Prefix = ns2
+                Namespace Prefix = ns3
                 */
             
 
@@ -679,7 +679,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("PricingTypes")){
-                return "ns2";
+                return "ns3";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -2180,7 +2180,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "PricingService/",
                 "GetPrices",
-                "ns3");
+                "ns4");
 
             
 
@@ -2334,7 +2334,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("PricingService/")){
-                return "ns3";
+                return "ns4";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -2680,7 +2680,7 @@
         /* This type was generated from the piece of schema that had
                 name = PriceList
                 Namespace URI = PricingTypes
-                Namespace Prefix = ns2
+                Namespace Prefix = ns3
                 */
             
 
@@ -2848,7 +2848,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("PricingTypes")){
-                return "ns2";
+                return "ns3";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -3200,7 +3200,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "PricingService/",
                 "GetPricesResponse",
-                "ns3");
+                "ns4");
 
             
 
@@ -3355,7 +3355,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("PricingService/")){
-                return "ns3";
+                return "ns4";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }

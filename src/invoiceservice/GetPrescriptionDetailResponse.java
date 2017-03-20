@@ -21,7 +21,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "InvoiceService/",
                 "GetPrescriptionDetailResponse",
-                "ns4");
+                "ns5");
 
             
 
@@ -133,7 +133,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("InvoiceService/")){
-                return "ns4";
+                return "ns5";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }

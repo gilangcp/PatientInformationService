@@ -180,9 +180,10 @@ import pharmacistserviceclient.PharmacistServiceRpcStub.RequestMedicine;
            receipt+="-------------\n";
            receipt+="Components \n";
            receipt+="-------------\n";
+			receipt+="Description \t Quantity"+"\t Price"+"\t Total \n";
 
 			for (pricingserviceclient.PricingServiceRpcStub.Price l : prices.getPriceList().getPriceItem()){
-				receipt+=l.getProductIdentifier()+"\t"+l.getQuantity()+"ml\t"+"€"+l.getPrice()+"\t"+l.getTotalPrice()+"\n";
+				receipt+=l.getProductIdentifier()+"\t "+l.getQuantity()+"ml \t"+l.getPrice()+"\t "+l.getTotalPrice()+"\n";
 			}
            
            receipt+="-------------\n";

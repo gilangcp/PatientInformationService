@@ -1,4 +1,3 @@
-
 /**
  * LaboratoryServiceRpcSkeleton.java
  *
@@ -57,4 +56,3 @@ import prescriptiondiagnosetypes.PrescriptionList;
              }
      
     }
-    

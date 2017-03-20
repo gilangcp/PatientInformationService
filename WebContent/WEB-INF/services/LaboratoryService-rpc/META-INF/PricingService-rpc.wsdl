@@ -31,7 +31,7 @@
   <wsdl:binding name="PricingServiceSOAP" type="tns:PricingService">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="GetPrices">
-      <soap:operation soapAction="http://localhost:8080/PatientInformationService/services/PricingService-rpc/GetPrices"/>
+      <soap:operation soapAction="http://www.example.org/PricingService/GetPrices"/>
       <wsdl:input>
         <soap:body use="literal" namespace="PricingService/"/>
       </wsdl:input>
@@ -42,7 +42,7 @@
   </wsdl:binding>
   <wsdl:service name="PricingService-rpc">
     <wsdl:port name="PricingServiceSOAP" binding="tns:PricingServiceSOAP">
-      <soap:address location="http://localhost:8080/PatientInformationService/services/PricingService-rpc"/>
+      <soap:address location="http://localhost:8080/TrialProjectWS/services/PricingService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

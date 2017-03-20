@@ -7,7 +7,7 @@
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
         <operation name="GetDiagnoseDetail" mep="http://www.w3.org/ns/wsdl/in-out" namespace="LaboratoryService/">
-            <actionMapping>http://www.example.org/LaboratoryService/GetExamDetail</actionMapping>
+            <actionMapping>http://localhost:8080/PatientInformationService/services/LaboratoryService-rpc/GetDiagnoseDetail</actionMapping>
             <outputActionMapping>LaboratoryService/LaboratoryService/GetDiagnoseDetailResponse</outputActionMapping>
         </operation>
     </service>

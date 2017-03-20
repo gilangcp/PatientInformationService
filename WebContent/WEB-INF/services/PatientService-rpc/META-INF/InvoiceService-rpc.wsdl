@@ -28,7 +28,7 @@
   <binding name="InvoiceServiceBinding" type="tns:InvoiceServicePortType">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="CreateTransaction">
-      <soap:operation soapAction="http://localhost:8080/InvoiceService//CreateTransaction"/>
+      <soap:operation soapAction="http://localhost:8080/PatientInformationService/services/InvoiceService-rpc/CreateTransaction"/>
       <input>
         <soap:body use="literal" namespace="InvoiceService/"/>
       </input>
@@ -39,7 +39,7 @@
   </binding>
   <service name="InvoiceService-rpc">
     <port name="InvoiceServicePort" binding="tns:InvoiceServiceBinding">
-      <soap:address location="http://localhost:8080/InvoiceService"/>
+      <soap:address location="http://localhost:8080/PatientInformationService/services/InvoiceService-rpc"/>
     </port>
   </service>
 </definitions>

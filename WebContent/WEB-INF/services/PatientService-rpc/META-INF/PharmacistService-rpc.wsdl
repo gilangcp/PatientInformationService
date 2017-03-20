@@ -6,6 +6,10 @@
     	</xsd:import>
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="MedicineResponse">
+    <wsdl:part name="PatientId" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="MedicineRequest">
     <wsdl:part name="PatientId" type="xsd:string">
     </wsdl:part>
@@ -16,20 +20,25 @@
     <wsdl:operation name="RequestMedicine">
       <wsdl:input message="tns:MedicineRequest">
     </wsdl:input>
+      <wsdl:output message="tns:MedicineResponse">
+    </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="PharmacistServiceBinding" type="tns:PharmacistServicePortType">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="RequestMedicine">
-      <soap:operation soapAction="http://example.org/RequestMedicine"/>
+      <soap:operation soapAction="http://localhost:8080/PatientInformationService/services/PharmacistService-rpc/RequestMedicine"/>
       <wsdl:input>
         <soap:body use="literal" namespace="PharmacistService/"/>
       </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="PharmacistService/"/>
+      </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="PharmacistService-rpc">
     <wsdl:port name="PharmacistServicePort" binding="tns:PharmacistServiceBinding">
-      <soap:address location="http://localhost:8080/PharmacistService"/>
+      <soap:address location="http://localhost:8080/PatientInformationService/services/PharmacistService-rpc"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

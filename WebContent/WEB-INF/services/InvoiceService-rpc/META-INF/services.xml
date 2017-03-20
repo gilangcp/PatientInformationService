@@ -7,7 +7,7 @@
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
         <operation name="CreateTransaction" mep="http://www.w3.org/ns/wsdl/in-out" namespace="InvoiceService/">
-            <actionMapping>http://localhost:8080/InvoiceService//CreateTransaction</actionMapping>
+            <actionMapping>http://localhost:8080/PatientInformationService/services/InvoiceService-rpc/CreateTransaction</actionMapping>
             <outputActionMapping>InvoiceService/InvoiceServicePortType/CreateTransactionResponse</outputActionMapping>
         </operation>
     </service>
