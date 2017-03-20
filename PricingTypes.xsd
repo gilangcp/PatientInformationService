@@ -21,12 +21,18 @@
 	          maxOccurs="1"
 	          minOccurs="1"
 	          name="Quantity"
-	          type="int"/>
+	          type="double"/>
 	        <element
 	          maxOccurs="1"
 	          minOccurs="1"
 	          name="Price"
-	          type="int"/>
+	          type="double"/>
+	       	<element
+	          maxOccurs="1"
+	          minOccurs="1"
+	          name="TotalPrice"
+	          type="double"/>
+	          
 	      </sequence>
 	</complexType>
     

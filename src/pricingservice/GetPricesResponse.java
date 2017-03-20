@@ -21,7 +21,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "PricingService/",
                 "GetPricesResponse",
-                "ns12");
+                "ns3");
 
             
 
@@ -50,6 +50,36 @@
                                public void setPriceList(pricingtypes.PriceList param){
                             
                                             this.localPriceList=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for TotalCost
+                        */
+
+                        
+                                    protected double localTotalCost ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return double
+                           */
+                           public  double getTotalCost(){
+                               return localTotalCost;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param TotalCost
+                               */
+                               public void setTotalCost(double param){
+                            
+                                            this.localTotalCost=param;
                                        
 
                                }
@@ -126,6 +156,19 @@
                                         xmlWriter);
                                     }
                                 
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "TotalCost", xmlWriter);
+                             
+                                               if (java.lang.Double.isNaN(localTotalCost)) {
+                                           
+                                                         writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                      
+                                               } else {
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTotalCost));
+                                               }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
                     xmlWriter.writeEndElement();
                
 
@@ -133,7 +176,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("PricingService/")){
-                return "ns12";
+                return "ns3";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -318,6 +361,12 @@
                                     elementList.add(localPriceList==null?null:
                                     localPriceList);
                                 
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "TotalCost"));
+                                 
+                                elementList.add(
+                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTotalCost));
+                            
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -411,6 +460,37 @@
                                               
                                         reader.next();
                                     }
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","TotalCost").equals(reader.getName())){
+                                
+                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setTotalCost(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToDouble(content));
+                                            
+                                       } else {
+                                           
+                                           
+                                                   object.setTotalCost(java.lang.Double.NaN);
+                                               
+                                           reader.getElementText(); // throw away text nodes if any.
+                                       }
+                                      
+                                        reader.next();
+                                    
                               }  // End of if for expected property start element
                                 
                                 else{

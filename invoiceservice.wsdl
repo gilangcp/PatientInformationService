@@ -18,6 +18,8 @@
  </wsdl:types>
 
   <wsdl:message name="transactionRequest">
+    <wsdl:part name='PatientID' type="xsd:string"/>
+    <wsdl:part name='TotalCost' type="xsd:double"/>
     <wsdl:part name='PriceList' type="prc:PriceList"/>
   </wsdl:message>
   
@@ -35,7 +37,7 @@
   <wsdl:binding type="tns:InvoiceServicePortType" name="InvoiceServiceBinding">
      <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CreateTransaction">
-      <soap:operation soapAction="http://example.com/CreateTransaction"/>
+      <soap:operation soapAction="http://localhost:8080/InvoiceService//CreateTransaction"/>
       <wsdl:input><soap:body use="literal" namespace="InvoiceService/" /> </wsdl:input>
         <wsdl:output><soap:body use="literal" namespace="InvoiceService/"/> </wsdl:output>
     </wsdl:operation>
@@ -43,7 +45,7 @@
 
   <wsdl:service name="InvoiceService-rpc">
     <wsdl:port binding="tns:InvoiceServiceBinding" name="InvoiceServicePort">
-      <soap:address location="http://www.example.org/" />
+      <soap:address location="http://localhost:8080/InvoiceService" />
     </wsdl:port>
   </wsdl:service>
   

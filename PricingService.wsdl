@@ -31,9 +31,9 @@ xmlns:pdt="PrescriptionDiagnoseTypes"
   
   <wsdl:message name="GetPricesResponse">
     <wsdl:part name="PriceList" type="prc:PriceList"/>
+    <wsdl:part name="TotalCost" type="xsd:double"/>
   </wsdl:message>
-  
-  
+   
   <wsdl:portType name="PricingService">
     <wsdl:operation name="GetPrices">
       <wsdl:input message="tns:GetPricesRequest"/>

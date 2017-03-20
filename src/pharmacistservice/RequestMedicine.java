@@ -21,9 +21,39 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "PharmacistService/",
                 "RequestMedicine",
-                "ns11");
+                "ns4");
 
             
+
+                        /**
+                        * field for PatientId
+                        */
+
+                        
+                                    protected java.lang.String localPatientId ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getPatientId(){
+                               return localPatientId;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param PatientId
+                               */
+                               public void setPatientId(java.lang.String param){
+                            
+                                            this.localPatientId=param;
+                                       
+
+                               }
+                            
 
                         /**
                         * field for PrescriptionList
@@ -114,6 +144,24 @@
                
                    }
                
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "PatientId", xmlWriter);
+                             
+
+                                          if (localPatientId==null){
+                                              // write the nil attribute
+                                              
+                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localPatientId);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
                                     if (localPrescriptionList==null){
 
                                         writeStartElement(null, "", "PrescriptionList", xmlWriter);
@@ -133,7 +181,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("PharmacistService/")){
-                return "ns11";
+                return "ns4";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -311,6 +359,12 @@
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
                 
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "PatientId"));
+                                 
+                                         elementList.add(localPatientId==null?null:
+                                         org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPatientId));
+                                    
                             elementList.add(new javax.xml.namespace.QName("",
                                                                       "PrescriptionList"));
                             
@@ -393,6 +447,35 @@
                     
                     reader.next();
                 
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","PatientId").equals(reader.getName())){
+                                
+                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setPatientId(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                            
+                                       } else {
+                                           
+                                           
+                                           reader.getElementText(); // throw away text nodes if any.
+                                       }
+                                      
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 

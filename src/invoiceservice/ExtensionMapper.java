@@ -33,26 +33,6 @@
               
                   if (
                   "PrescriptionDiagnoseTypes".equals(namespaceURI) &&
-                  "Diagnose".equals(typeName)){
-                   
-                            return  prescriptiondiagnosetypes.Diagnose.Factory.parse(reader);
-                        
-
-                  }
-
-              
-                  if (
-                  "PrescriptionDiagnoseTypes".equals(namespaceURI) &&
-                  "DiagnoseList".equals(typeName)){
-                   
-                            return  prescriptiondiagnosetypes.DiagnoseList.Factory.parse(reader);
-                        
-
-                  }
-
-              
-                  if (
-                  "PrescriptionDiagnoseTypes".equals(namespaceURI) &&
                   "Prescription".equals(typeName)){
                    
                             return  prescriptiondiagnosetypes.Prescription.Factory.parse(reader);

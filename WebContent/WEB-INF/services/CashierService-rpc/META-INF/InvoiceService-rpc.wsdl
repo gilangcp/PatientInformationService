@@ -6,10 +6,6 @@
     	</xsd:import></xsd:schema>
   </types>
   <message name="transactionRequest">
-    <part name="PatientID" type="xsd:string">
-    </part>
-    <part name="TotalCost" type="xsd:double">
-    </part>
     <part name="PriceList" type="prc:PriceList">
     </part>
   </message>
@@ -28,7 +24,7 @@
   <binding name="InvoiceServiceBinding" type="tns:InvoiceServicePortType">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="CreateTransaction">
-      <soap:operation soapAction="http://localhost:8080/InvoiceService//CreateTransaction"/>
+      <soap:operation soapAction="http://example.com/CreateTransaction"/>
       <input>
         <soap:body use="literal" namespace="InvoiceService/"/>
       </input>
@@ -39,7 +35,7 @@
   </binding>
   <service name="InvoiceService-rpc">
     <port name="InvoiceServicePort" binding="tns:InvoiceServiceBinding">
-      <soap:address location="http://localhost:8080/InvoiceService"/>
+      <soap:address location="http://www.example.org/"/>
     </port>
   </service>
 </definitions>

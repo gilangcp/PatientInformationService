@@ -7,8 +7,6 @@
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="MedicineRequest">
-    <wsdl:part name="PatientId" type="xsd:string">
-    </wsdl:part>
     <wsdl:part name="PrescriptionList" type="pdt:PrescriptionList">
     </wsdl:part>
   </wsdl:message>
@@ -29,7 +27,7 @@
   </wsdl:binding>
   <wsdl:service name="PharmacistService-rpc">
     <wsdl:port name="PharmacistServicePort" binding="tns:PharmacistServiceBinding">
-      <soap:address location="http://localhost:8080/PharmacistService"/>
+      <soap:address location="http://www.example.org/"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

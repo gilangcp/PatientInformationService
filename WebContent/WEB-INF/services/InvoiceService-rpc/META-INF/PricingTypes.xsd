@@ -7,8 +7,9 @@
     <complexType name="Price">
         <sequence>
             <element name="ProductIdentifier" type="string"/>
-            <element name="Quantity" type="int"/>
-            <element name="Price" type="int"/>
+            <element name="Quantity" type="double"/>
+            <element name="Price" type="double"/>
+            <element name="Price" type="double"/>
         </sequence>
     </complexType>
 </schema>

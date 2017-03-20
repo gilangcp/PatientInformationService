@@ -20,7 +20,7 @@
         /* This type was generated from the piece of schema that had
                 name = Price
                 Namespace URI = PricingTypes
-                Namespace Prefix = ns1
+                Namespace Prefix = ns2
                 */
             
 
@@ -59,14 +59,14 @@
                         */
 
                         
-                                    protected int localQuantity ;
+                                    protected double localQuantity ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return int
+                           * @return double
                            */
-                           public  int getQuantity(){
+                           public  double getQuantity(){
                                return localQuantity;
                            }
 
@@ -76,7 +76,7 @@
                                * Auto generated setter method
                                * @param param Quantity
                                */
-                               public void setQuantity(int param){
+                               public void setQuantity(double param){
                             
                                             this.localQuantity=param;
                                        
@@ -89,14 +89,14 @@
                         */
 
                         
-                                    protected int localPrice ;
+                                    protected double localPrice ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return int
+                           * @return double
                            */
-                           public  int getPrice(){
+                           public  double getPrice(){
                                return localPrice;
                            }
 
@@ -106,9 +106,39 @@
                                * Auto generated setter method
                                * @param param Price
                                */
-                               public void setPrice(int param){
+                               public void setPrice(double param){
                             
                                             this.localPrice=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for TotalPrice
+                        */
+
+                        
+                                    protected double localTotalPrice ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return double
+                           */
+                           public  double getTotalPrice(){
+                               return localTotalPrice;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param TotalPrice
+                               */
+                               public void setTotalPrice(double param){
+                            
+                                            this.localTotalPrice=param;
                                        
 
                                }
@@ -194,7 +224,7 @@
                                     namespace = "";
                                     writeStartElement(null, namespace, "Quantity", xmlWriter);
                              
-                                               if (localQuantity==java.lang.Integer.MIN_VALUE) {
+                                               if (java.lang.Double.isNaN(localQuantity)) {
                                            
                                                          throw new org.apache.axis2.databinding.ADBException("Quantity cannot be null!!");
                                                       
@@ -207,12 +237,25 @@
                                     namespace = "";
                                     writeStartElement(null, namespace, "Price", xmlWriter);
                              
-                                               if (localPrice==java.lang.Integer.MIN_VALUE) {
+                                               if (java.lang.Double.isNaN(localPrice)) {
                                            
                                                          throw new org.apache.axis2.databinding.ADBException("Price cannot be null!!");
                                                       
                                                } else {
                                                     xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPrice));
+                                               }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "TotalPrice", xmlWriter);
+                             
+                                               if (java.lang.Double.isNaN(localTotalPrice)) {
+                                           
+                                                         throw new org.apache.axis2.databinding.ADBException("TotalPrice cannot be null!!");
+                                                      
+                                               } else {
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTotalPrice));
                                                }
                                     
                                    xmlWriter.writeEndElement();
@@ -224,7 +267,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("PricingTypes")){
-                return "ns1";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -423,6 +466,12 @@
                                 elementList.add(
                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPrice));
                             
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "TotalPrice"));
+                                 
+                                elementList.add(
+                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTotalPrice));
+                            
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -537,7 +586,7 @@
                                     java.lang.String content = reader.getElementText();
                                     
                                               object.setQuantity(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToDouble(content));
                                               
                                         reader.next();
                                     
@@ -562,7 +611,32 @@
                                     java.lang.String content = reader.getElementText();
                                     
                                               object.setPrice(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToDouble(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","TotalPrice").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"TotalPrice" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setTotalPrice(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToDouble(content));
                                               
                                         reader.next();
                                     

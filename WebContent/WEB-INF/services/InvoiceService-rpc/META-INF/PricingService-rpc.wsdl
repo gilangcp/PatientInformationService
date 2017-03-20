@@ -17,8 +17,6 @@
   <wsdl:message name="GetPricesResponse">
     <wsdl:part name="PriceList" type="prc:PriceList">
     </wsdl:part>
-    <wsdl:part name="TotalCost" type="xsd:double">
-    </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="PricingService">
     <wsdl:operation name="GetPrices">

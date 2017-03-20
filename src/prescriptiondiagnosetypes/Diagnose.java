@@ -427,7 +427,7 @@
                             if (!"Diagnose".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (Diagnose)invoiceservice.ExtensionMapper.getTypeObject(
+                                return (Diagnose)pricingservice.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         

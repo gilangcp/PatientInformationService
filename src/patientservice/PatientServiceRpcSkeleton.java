@@ -17,7 +17,8 @@ import prescriptiondiagnosetypes.PrescriptionList;
      *  PatientServiceRpcSkeleton java skeleton for the axisService
      */
     public class PatientServiceRpcSkeleton{
-        
+    	
+    	
     	private Random rand = new Random();
     	public String[] medicineName= new String[]{
     			"decitabine",
@@ -40,7 +41,8 @@ import prescriptiondiagnosetypes.PrescriptionList;
     			"40",
     			"50"
     	};
-    	
+
+         
         /**
          * Auto generated method signature
          * 
@@ -51,7 +53,9 @@ import prescriptiondiagnosetypes.PrescriptionList;
                  public invoiceservice.GetPrescriptionAndDiagnosisDetailResponse getPrescriptionAndDiagnosisDetail
                   (
                   invoiceservice.GetPrescriptionAndDiagnosisDetail getPrescriptionAndDiagnosisDetail
-                  ){
+                  )
+            {
+
                      //Randomize the number of prescription
                 	 int prescriptionCount = rand.nextInt((5 - 1) + 1) + 1;
                 	 PrescriptionList presList = new PrescriptionList();
@@ -86,7 +90,7 @@ import prescriptiondiagnosetypes.PrescriptionList;
                 	 GetPrescriptionAndDiagnosisDetailResponse res = new GetPrescriptionAndDiagnosisDetailResponse();
                 	 res.setPrescription(presList);
                 	 return res;
-                 }   		 
-                		
+        }
+     
     }
     

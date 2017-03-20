@@ -1,6 +1,7 @@
 
+
 /**
- * PaymentServiceRpcMessageReceiverInOut.java
+ * CashierServiceRpcMessageReceiverInOnly.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.4  Built on : Dec 28, 2015 (10:03:39 GMT)
@@ -8,25 +9,23 @@
         package cashierservice;
 
         /**
-        *  PaymentServiceRpcMessageReceiverInOut message receiver
+        *  CashierServiceRpcMessageReceiverInOnly message receiver
         */
 
-        public class PaymentServiceRpcMessageReceiverInOut extends org.apache.axis2.receivers.AbstractInOutMessageReceiver{
+        public class CashierServiceRpcMessageReceiverInOnly extends org.apache.axis2.receivers.AbstractInMessageReceiver{
 
-
-        public void invokeBusinessLogic(org.apache.axis2.context.MessageContext msgContext, org.apache.axis2.context.MessageContext newMsgContext)
-        throws org.apache.axis2.AxisFault{
+        public void invokeBusinessLogic(org.apache.axis2.context.MessageContext inMessage) throws org.apache.axis2.AxisFault{
 
         try {
 
         // get the implementation class for the Web Service
-        Object obj = getTheImplementationObject(msgContext);
+        Object obj = getTheImplementationObject(inMessage);
 
-        PaymentServiceRpcSkeleton skel = (PaymentServiceRpcSkeleton)obj;
+        CashierServiceRpcSkeleton skel = (CashierServiceRpcSkeleton)obj;
         //Out Envelop
         org.apache.axiom.soap.SOAPEnvelope envelope = null;
         //Find the axisOperation that has been set by the Dispatch phase.
-        org.apache.axis2.description.AxisOperation op = msgContext.getOperationContext().getAxisOperation();
+        org.apache.axis2.description.AxisOperation op = inMessage.getOperationContext().getAxisOperation();
         if (op == null) {
         throw new org.apache.axis2.AxisFault("Operation is not located, if this is doclit style the SOAP-ACTION should specified via the SOAP Action to use the RawXMLProvider");
         }
@@ -34,39 +33,28 @@
         java.lang.String methodName;
         if((op.getName() != null) && ((methodName = org.apache.axis2.util.JavaUtils.xmlNameToJavaIdentifier(op.getName().getLocalPart())) != null)){
 
-
         
-
-            if("doPayment".equals(methodName)){
-                
-                cashierservice.DoPaymentResponse doPaymentResponse8 = null;
-	                        cashierservice.DoPayment wrappedParam =
-                                                             (cashierservice.DoPayment)fromOM(
-                                    msgContext.getEnvelope().getBody().getFirstElement(),
-                                    cashierservice.DoPayment.class,
-                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
-                                                
-                                               doPaymentResponse8 =
-                                                   
-                                                   
-                                                         skel.doPayment(wrappedParam)
-                                                    ;
+            if("notifyMedicineReady".equals(methodName)){
+            
+            cashierservice.NotifyMedicineReady wrappedParam = (cashierservice.NotifyMedicineReady)fromOM(
+                                                        inMessage.getEnvelope().getBody().getFirstElement(),
+                                                        cashierservice.NotifyMedicineReady.class,
+                                                        getEnvelopeNamespaces(inMessage.getEnvelope()));
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), doPaymentResponse8, false, new javax.xml.namespace.QName("CashierService",
-                                                    "doPayment"));
-                                    
-            } else {
-              throw new java.lang.RuntimeException("method not found");
-            }
-        
+                                                     skel.notifyMedicineReady(wrappedParam);
+                                                
+                } else {
+                  throw new java.lang.RuntimeException("method not found");
+                }
+            
 
-        newMsgContext.setEnvelope(envelope);
         }
-        }
-        catch (java.lang.Exception e) {
+        } catch (java.lang.Exception e) {
         throw org.apache.axis2.AxisFault.makeFault(e);
         }
         }
+
+
         
         //
             private  org.apache.axiom.om.OMElement  toOM(cashierservice.DoPayment param, boolean optimizeContent)
@@ -178,6 +166,8 @@
 
     
 
+
+
         /**
         *  A utility method that copies the namepaces from the SOAPEnvelope
         */
@@ -191,17 +181,8 @@
         return returnMap;
         }
 
-        private org.apache.axis2.AxisFault createAxisFault(java.lang.Exception e) {
-        org.apache.axis2.AxisFault f;
-        Throwable cause = e.getCause();
-        if (cause != null) {
-            f = new org.apache.axis2.AxisFault(e.getMessage(), cause);
-        } else {
-            f = new org.apache.axis2.AxisFault(e.getMessage());
-        }
 
-        return f;
-    }
 
         }//end of class
+
     
