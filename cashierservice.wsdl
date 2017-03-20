@@ -24,19 +24,11 @@
     <wsdl:part name='receipt' type='xsd:string'/>
   </wsdl:message>
 
-  <wsdl:message name="notifyMedicineReadyRequest">
-    <wsdl:part name='patientId' type='xsd:int'/>
-  </wsdl:message>
-
   <wsdl:portType name="CashierServicePortType">
 
     <wsdl:operation name="DoPayment">
       <wsdl:input message="mh:paymentRequest"/>
       <wsdl:output message="mh:paymentResponse"/>
-    </wsdl:operation>
-
-    <wsdl:operation name="notifyMedicineReady">
-      <wsdl:input message="mh:notifyMedicineReadyRequest"/>
     </wsdl:operation>
 
   </wsdl:portType>
@@ -45,20 +37,16 @@
      <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
 
      <wsdl:operation name="DoPayment">
-       <soap:operation soapAction="http://localhost:8080/DoPayment"/>
+       <soap:operation soapAction="http://localhost:8080/PatientInformationService/services/CashierService-rpc/DoPayment"/>
        <wsdl:input><soap:body use="literal" namespace="CashierService" /></wsdl:input>
        <wsdl:output><soap:body use="literal" namespace="CashierService" /></wsdl:output>
     </wsdl:operation>
 
-     <wsdl:operation name="notifyMedicineReady">
-       <soap:operation soapAction="http://localhost:8080/notifyMedicineReady"/>
-       <wsdl:input><soap:body use="literal" namespace="CashierService" /></wsdl:input>
-    </wsdl:operation>
   </wsdl:binding>
   
 	<wsdl:service name="CashierService-rpc">
 		<wsdl:port binding="mh:CashierServiceBinding" name="CashierServicePort">
-			<soap:address location="http://localhost:8080/CashierService" />
+			<soap:address location="http://localhost:8080/PatientInformationService/services/CashierService-rpc" />
 		</wsdl:port>
 	</wsdl:service>
  

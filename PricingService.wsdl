@@ -44,7 +44,7 @@ xmlns:pdt="PrescriptionDiagnoseTypes"
   <wsdl:binding name="PricingServiceSOAP" type="tns:PricingService">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="GetPrices">
-      <soap:operation soapAction="http://www.example.org/PricingService/GetPrices"/>
+      <soap:operation soapAction="http://localhost:8080/PatientInformationService/services/PricingService-rpc/GetPrices"/>
       <wsdl:input>
         <soap:body namespace="PricingService/" use="literal"/>
       </wsdl:input>
@@ -57,7 +57,7 @@ xmlns:pdt="PrescriptionDiagnoseTypes"
   
   <wsdl:service name="PricingService-rpc">
     <wsdl:port binding="tns:PricingServiceSOAP" name="PricingServiceSOAP">
-      <soap:address location="http://localhost:8080/TrialProjectWS/services/PricingService"/>
+      <soap:address location="http://localhost:8080/PatientInformationService/services/PricingService-rpc"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

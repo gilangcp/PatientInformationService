@@ -13,10 +13,6 @@
     <part name="receipt" type="xsd:string">
     </part>
   </message>
-  <message name="notifyMedicineReadyRequest">
-    <part name="patientId" type="xsd:int">
-    </part>
-  </message>
   <portType name="CashierServicePortType">
     <operation name="DoPayment">
       <input message="mh:paymentRequest">
@@ -24,15 +20,11 @@
       <output message="mh:paymentResponse">
     </output>
     </operation>
-    <operation name="notifyMedicineReady">
-      <input message="mh:notifyMedicineReadyRequest">
-    </input>
-    </operation>
   </portType>
   <binding name="CashierServiceBinding" type="mh:CashierServicePortType">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="DoPayment">
-      <soap:operation soapAction="http://localhost:8080/DoPayment"/>
+      <soap:operation soapAction="http://localhost:8080/PatientInformationService/services/CashierService-rpc/DoPayment"/>
       <input>
         <soap:body use="literal" namespace="CashierService"/>
       </input>
@@ -40,16 +32,10 @@
         <soap:body use="literal" namespace="CashierService"/>
       </output>
     </operation>
-    <operation name="notifyMedicineReady">
-      <soap:operation soapAction="http://localhost:8080/notifyMedicineReady"/>
-      <input>
-        <soap:body use="literal" namespace="CashierService"/>
-      </input>
-    </operation>
   </binding>
   <service name="CashierService-rpc">
     <port name="CashierServicePort" binding="mh:CashierServiceBinding">
-      <soap:address location="http://localhost:8080/CashierService"/>
+      <soap:address location="http://localhost:8080/PatientInformationService/services/CashierService-rpc"/>
     </port>
   </service>
 </definitions>

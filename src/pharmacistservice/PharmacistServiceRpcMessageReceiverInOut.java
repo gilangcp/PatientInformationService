@@ -1,17 +1,17 @@
 
 /**
- * PatientServiceRpcMessageReceiverInOut.java
+ * PharmacistServiceRpcMessageReceiverInOut.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.4  Built on : Dec 28, 2015 (10:03:39 GMT)
  */
-        package patientservice;
+        package pharmacistservice;
 
         /**
-        *  PatientServiceRpcMessageReceiverInOut message receiver
+        *  PharmacistServiceRpcMessageReceiverInOut message receiver
         */
 
-        public class PatientServiceRpcMessageReceiverInOut extends org.apache.axis2.receivers.AbstractInOutMessageReceiver{
+        public class PharmacistServiceRpcMessageReceiverInOut extends org.apache.axis2.receivers.AbstractInOutMessageReceiver{
 
 
         public void invokeBusinessLogic(org.apache.axis2.context.MessageContext msgContext, org.apache.axis2.context.MessageContext newMsgContext)
@@ -22,7 +22,7 @@
         // get the implementation class for the Web Service
         Object obj = getTheImplementationObject(msgContext);
 
-        PatientServiceRpcSkeleton skel = (PatientServiceRpcSkeleton)obj;
+        PharmacistServiceRpcSkeleton skel = (PharmacistServiceRpcSkeleton)obj;
         //Out Envelop
         org.apache.axiom.soap.SOAPEnvelope envelope = null;
         //Find the axisOperation that has been set by the Dispatch phase.
@@ -37,23 +37,23 @@
 
         
 
-            if("getPrescriptionDetail".equals(methodName)){
+            if("requestMedicine".equals(methodName)){
                 
-                invoiceservice.GetPrescriptionDetailResponse getPrescriptionDetailResponse5 = null;
-	                        invoiceservice.GetPrescriptionDetail wrappedParam =
-                                                             (invoiceservice.GetPrescriptionDetail)fromOM(
+                pharmacistservice.RequestMedicineResponse requestMedicineResponse5 = null;
+	                        pharmacistservice.RequestMedicine wrappedParam =
+                                                             (pharmacistservice.RequestMedicine)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
-                                    invoiceservice.GetPrescriptionDetail.class,
+                                    pharmacistservice.RequestMedicine.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               getPrescriptionDetailResponse5 =
+                                               requestMedicineResponse5 =
                                                    
                                                    
-                                                         skel.getPrescriptionDetail(wrappedParam)
+                                                         skel.requestMedicine(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), getPrescriptionDetailResponse5, false, new javax.xml.namespace.QName("PatientService/",
-                                                    "getPrescriptionDetail"));
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), requestMedicineResponse5, false, new javax.xml.namespace.QName("PharmacistService/",
+                                                    "requestMedicine"));
                                     
             } else {
               throw new java.lang.RuntimeException("method not found");
@@ -69,12 +69,12 @@
         }
         
         //
-            private  org.apache.axiom.om.OMElement  toOM(invoiceservice.GetPrescriptionDetail param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(pharmacistservice.RequestMedicine param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(invoiceservice.GetPrescriptionDetail.MY_QNAME,
+                             return param.getOMElement(pharmacistservice.RequestMedicine.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -83,12 +83,12 @@
 
             }
         
-            private  org.apache.axiom.om.OMElement  toOM(invoiceservice.GetPrescriptionDetailResponse param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(pharmacistservice.RequestMedicineResponse param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(invoiceservice.GetPrescriptionDetailResponse.MY_QNAME,
+                             return param.getOMElement(pharmacistservice.RequestMedicineResponse.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -97,12 +97,12 @@
 
             }
         
-                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, invoiceservice.GetPrescriptionDetailResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, pharmacistservice.RequestMedicineResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                         throws org.apache.axis2.AxisFault{
                       try{
                           org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
                            
-                                    emptyEnvelope.getBody().addChild(param.getOMElement(invoiceservice.GetPrescriptionDetailResponse.MY_QNAME,factory));
+                                    emptyEnvelope.getBody().addChild(param.getOMElement(pharmacistservice.RequestMedicineResponse.MY_QNAME,factory));
                                 
 
                          return emptyEnvelope;
@@ -111,8 +111,8 @@
                     }
                     }
                     
-                         private invoiceservice.GetPrescriptionDetailResponse wrapGetPrescriptionDetail(){
-                                invoiceservice.GetPrescriptionDetailResponse wrappedElement = new invoiceservice.GetPrescriptionDetailResponse();
+                         private pharmacistservice.RequestMedicineResponse wrapRequestMedicine(){
+                                pharmacistservice.RequestMedicineResponse wrappedElement = new pharmacistservice.RequestMedicineResponse();
                                 return wrappedElement;
                          }
                     
@@ -133,16 +133,16 @@
 
         try {
         
-                if (invoiceservice.GetPrescriptionDetail.class.equals(type)){
+                if (pharmacistservice.RequestMedicine.class.equals(type)){
                 
-                        return invoiceservice.GetPrescriptionDetail.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                        return pharmacistservice.RequestMedicine.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
             
-                if (invoiceservice.GetPrescriptionDetailResponse.class.equals(type)){
+                if (pharmacistservice.RequestMedicineResponse.class.equals(type)){
                 
-                        return invoiceservice.GetPrescriptionDetailResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                        return pharmacistservice.RequestMedicineResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

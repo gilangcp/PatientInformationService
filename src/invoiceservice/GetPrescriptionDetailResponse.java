@@ -1,85 +1,55 @@
 
 /**
- * RequestMedicine.java
+ * GetPrescriptionDetailResponse.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.4  Built on : Dec 28, 2015 (10:04:10 GMT)
  */
 
             
-                package pharmacistservice;
+                package invoiceservice;
             
 
             /**
-            *  RequestMedicine bean class
+            *  GetPrescriptionDetailResponse bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class RequestMedicine
+        public  class GetPrescriptionDetailResponse
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "PharmacistService/",
-                "RequestMedicine",
-                "ns6");
+                "InvoiceService/",
+                "GetPrescriptionDetailResponse",
+                "ns4");
 
             
 
                         /**
-                        * field for PatientId
+                        * field for Prescription
                         */
 
                         
-                                    protected java.lang.String localPatientId ;
-                                
-
-                           /**
-                           * Auto generated getter method
-                           * @return java.lang.String
-                           */
-                           public  java.lang.String getPatientId(){
-                               return localPatientId;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param PatientId
-                               */
-                               public void setPatientId(java.lang.String param){
-                            
-                                            this.localPatientId=param;
-                                       
-
-                               }
-                            
-
-                        /**
-                        * field for PrescriptionList
-                        */
-
-                        
-                                    protected prescriptiondiagnosetypes.PrescriptionList localPrescriptionList ;
+                                    protected prescriptiondiagnosetypes.PrescriptionList localPrescription ;
                                 
 
                            /**
                            * Auto generated getter method
                            * @return prescriptiondiagnosetypes.PrescriptionList
                            */
-                           public  prescriptiondiagnosetypes.PrescriptionList getPrescriptionList(){
-                               return localPrescriptionList;
+                           public  prescriptiondiagnosetypes.PrescriptionList getPrescription(){
+                               return localPrescription;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param PrescriptionList
+                               * @param param Prescription
                                */
-                               public void setPrescriptionList(prescriptiondiagnosetypes.PrescriptionList param){
+                               public void setPrescription(prescriptiondiagnosetypes.PrescriptionList param){
                             
-                                            this.localPrescriptionList=param;
+                                            this.localPrescription=param;
                                        
 
                                }
@@ -130,47 +100,29 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"PharmacistService/");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"InvoiceService/");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":RequestMedicine",
+                           namespacePrefix+":GetPrescriptionDetailResponse",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "RequestMedicine",
+                           "GetPrescriptionDetailResponse",
                            xmlWriter);
                    }
 
                
                    }
                
-                                    namespace = "";
-                                    writeStartElement(null, namespace, "PatientId", xmlWriter);
-                             
+                                    if (localPrescription==null){
 
-                                          if (localPatientId==null){
-                                              // write the nil attribute
-                                              
-                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                                  
-                                          }else{
-
-                                        
-                                                   xmlWriter.writeCharacters(localPatientId);
-                                            
-                                          }
-                                    
-                                   xmlWriter.writeEndElement();
-                             
-                                    if (localPrescriptionList==null){
-
-                                        writeStartElement(null, "", "PrescriptionList", xmlWriter);
+                                        writeStartElement(null, "", "Prescription", xmlWriter);
 
                                        // write the nil attribute
                                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
                                       xmlWriter.writeEndElement();
                                     }else{
-                                     localPrescriptionList.serialize(new javax.xml.namespace.QName("","PrescriptionList"),
+                                     localPrescription.serialize(new javax.xml.namespace.QName("","Prescription"),
                                         xmlWriter);
                                     }
                                 
@@ -180,8 +132,8 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("PharmacistService/")){
-                return "ns6";
+            if(namespace.equals("InvoiceService/")){
+                return "ns4";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -359,18 +311,12 @@
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
                 
-                                      elementList.add(new javax.xml.namespace.QName("",
-                                                                      "PatientId"));
-                                 
-                                         elementList.add(localPatientId==null?null:
-                                         org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPatientId));
-                                    
                             elementList.add(new javax.xml.namespace.QName("",
-                                                                      "PrescriptionList"));
+                                                                      "Prescription"));
                             
                             
-                                    elementList.add(localPrescriptionList==null?null:
-                                    localPrescriptionList);
+                                    elementList.add(localPrescription==null?null:
+                                    localPrescription);
                                 
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
@@ -396,9 +342,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static RequestMedicine parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            RequestMedicine object =
-                new RequestMedicine();
+        public static GetPrescriptionDetailResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            GetPrescriptionDetailResponse object =
+                new GetPrescriptionDetailResponse();
 
             int event;
             java.lang.String nillableValue = null;
@@ -422,10 +368,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"RequestMedicine".equals(type)){
+                            if (!"GetPrescriptionDetailResponse".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (RequestMedicine)pharmacistservice.ExtensionMapper.getTypeObject(
+                                return (GetPrescriptionDetailResponse)invoiceservice.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -450,47 +396,18 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","PatientId").equals(reader.getName())){
-                                
-                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setPatientId(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                                            
-                                       } else {
-                                           
-                                           
-                                           reader.getElementText(); // throw away text nodes if any.
-                                       }
-                                      
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                            
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","PrescriptionList").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","Prescription").equals(reader.getName())){
                                 
                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                       if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                          object.setPrescriptionList(null);
+                                          object.setPrescription(null);
                                           reader.next();
                                             
                                             reader.next();
                                           
                                       }else{
                                     
-                                                object.setPrescriptionList(prescriptiondiagnosetypes.PrescriptionList.Factory.parse(reader));
+                                                object.setPrescription(prescriptiondiagnosetypes.PrescriptionList.Factory.parse(reader));
                                               
                                         reader.next();
                                     }

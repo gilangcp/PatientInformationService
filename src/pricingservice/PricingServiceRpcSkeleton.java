@@ -72,7 +72,7 @@ import pricingtypes.PriceList;
                 		 
                 		 for (String medicineAndQuantity : lines){
                 			 if(medicineAndQuantity.contains("--")) break;
-                			 medicineAndQuantity.replace("ml", "");
+                			 medicineAndQuantity = medicineAndQuantity.replace("ml", "");
                 			 Price price = new Price();
                 			 
                 			 //[0] will contain the name of the medicine

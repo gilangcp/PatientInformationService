@@ -9,7 +9,7 @@
 
 import java.util.Random;
 
-import invoiceservice.GetPrescriptionAndDiagnosisDetailResponse;
+import invoiceservice.GetPrescriptionDetailResponse;
 import prescriptiondiagnosetypes.Prescription;
 import prescriptiondiagnosetypes.PrescriptionList;
 
@@ -17,8 +17,6 @@ import prescriptiondiagnosetypes.PrescriptionList;
      *  PatientServiceRpcSkeleton java skeleton for the axisService
      */
     public class PatientServiceRpcSkeleton{
-    	
-    	
     	private Random rand = new Random();
     	public String[] medicineName= new String[]{
     			"decitabine",
@@ -46,16 +44,16 @@ import prescriptiondiagnosetypes.PrescriptionList;
         /**
          * Auto generated method signature
          * 
-                                     * @param getPrescriptionAndDiagnosisDetail 
-             * @return getPrescriptionAndDiagnosisDetailResponse 
+                                     * @param getPrescriptionDetail 
+             * @return getPrescriptionDetailResponse 
          */
         
-                 public invoiceservice.GetPrescriptionAndDiagnosisDetailResponse getPrescriptionAndDiagnosisDetail
+                 public invoiceservice.GetPrescriptionDetailResponse getPrescriptionDetail
                   (
-                  invoiceservice.GetPrescriptionAndDiagnosisDetail getPrescriptionAndDiagnosisDetail
+                  invoiceservice.GetPrescriptionDetail getPrescriptionDetail
                   )
             {
-
+                //TODO : fill this with the necessary business logic
                      //Randomize the number of prescription
                 	 int prescriptionCount = rand.nextInt((5 - 1) + 1) + 1;
                 	 PrescriptionList presList = new PrescriptionList();
@@ -87,7 +85,7 @@ import prescriptiondiagnosetypes.PrescriptionList;
 	                	 presList.addPrescriptionItem(p);  
 	                }
                 	 
-                	 GetPrescriptionAndDiagnosisDetailResponse res = new GetPrescriptionAndDiagnosisDetailResponse();
+                	 GetPrescriptionDetailResponse res = new GetPrescriptionDetailResponse();
                 	 res.setPrescription(presList);
                 	 return res;
         }

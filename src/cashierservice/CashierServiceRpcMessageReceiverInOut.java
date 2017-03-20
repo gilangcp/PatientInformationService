@@ -39,20 +39,20 @@
 
             if("doPayment".equals(methodName)){
                 
-                cashierservice.DoPaymentResponse doPaymentResponse8 = null;
+                cashierservice.DoPaymentResponse doPaymentResponse5 = null;
 	                        cashierservice.DoPayment wrappedParam =
                                                              (cashierservice.DoPayment)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     cashierservice.DoPayment.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               doPaymentResponse8 =
+                                               doPaymentResponse5 =
                                                    
                                                    
                                                          skel.doPayment(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), doPaymentResponse8, false, new javax.xml.namespace.QName("CashierService",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), doPaymentResponse5, false, new javax.xml.namespace.QName("CashierService",
                                                     "doPayment"));
                                     
             } else {
@@ -89,20 +89,6 @@
             
                         try{
                              return param.getOMElement(cashierservice.DoPaymentResponse.MY_QNAME,
-                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-                        } catch(org.apache.axis2.databinding.ADBException e){
-                            throw org.apache.axis2.AxisFault.makeFault(e);
-                        }
-                    
-
-            }
-        
-            private  org.apache.axiom.om.OMElement  toOM(cashierservice.NotifyMedicineReady param, boolean optimizeContent)
-            throws org.apache.axis2.AxisFault {
-
-            
-                        try{
-                             return param.getOMElement(cashierservice.NotifyMedicineReady.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -157,13 +143,6 @@
                 if (cashierservice.DoPaymentResponse.class.equals(type)){
                 
                         return cashierservice.DoPaymentResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
-
-                }
-            
-                if (cashierservice.NotifyMedicineReady.class.equals(type)){
-                
-                        return cashierservice.NotifyMedicineReady.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

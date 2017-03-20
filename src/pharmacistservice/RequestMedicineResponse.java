@@ -1,6 +1,6 @@
 
 /**
- * RequestMedicine.java
+ * RequestMedicineResponse.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.4  Built on : Dec 28, 2015 (10:04:10 GMT)
@@ -11,16 +11,16 @@
             
 
             /**
-            *  RequestMedicine bean class
+            *  RequestMedicineResponse bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class RequestMedicine
+        public  class RequestMedicineResponse
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "PharmacistService/",
-                "RequestMedicine",
+                "RequestMedicineResponse",
                 "ns6");
 
             
@@ -50,36 +50,6 @@
                                public void setPatientId(java.lang.String param){
                             
                                             this.localPatientId=param;
-                                       
-
-                               }
-                            
-
-                        /**
-                        * field for PrescriptionList
-                        */
-
-                        
-                                    protected prescriptiondiagnosetypes.PrescriptionList localPrescriptionList ;
-                                
-
-                           /**
-                           * Auto generated getter method
-                           * @return prescriptiondiagnosetypes.PrescriptionList
-                           */
-                           public  prescriptiondiagnosetypes.PrescriptionList getPrescriptionList(){
-                               return localPrescriptionList;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param PrescriptionList
-                               */
-                               public void setPrescriptionList(prescriptiondiagnosetypes.PrescriptionList param){
-                            
-                                            this.localPrescriptionList=param;
                                        
 
                                }
@@ -133,11 +103,11 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"PharmacistService/");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":RequestMedicine",
+                           namespacePrefix+":RequestMedicineResponse",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "RequestMedicine",
+                           "RequestMedicineResponse",
                            xmlWriter);
                    }
 
@@ -162,18 +132,6 @@
                                     
                                    xmlWriter.writeEndElement();
                              
-                                    if (localPrescriptionList==null){
-
-                                        writeStartElement(null, "", "PrescriptionList", xmlWriter);
-
-                                       // write the nil attribute
-                                      writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                      xmlWriter.writeEndElement();
-                                    }else{
-                                     localPrescriptionList.serialize(new javax.xml.namespace.QName("","PrescriptionList"),
-                                        xmlWriter);
-                                    }
-                                
                     xmlWriter.writeEndElement();
                
 
@@ -365,13 +323,6 @@
                                          elementList.add(localPatientId==null?null:
                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPatientId));
                                     
-                            elementList.add(new javax.xml.namespace.QName("",
-                                                                      "PrescriptionList"));
-                            
-                            
-                                    elementList.add(localPrescriptionList==null?null:
-                                    localPrescriptionList);
-                                
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -396,9 +347,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static RequestMedicine parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            RequestMedicine object =
-                new RequestMedicine();
+        public static RequestMedicineResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            RequestMedicineResponse object =
+                new RequestMedicineResponse();
 
             int event;
             java.lang.String nillableValue = null;
@@ -422,10 +373,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"RequestMedicine".equals(type)){
+                            if (!"RequestMedicineResponse".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (RequestMedicine)pharmacistservice.ExtensionMapper.getTypeObject(
+                                return (RequestMedicineResponse)pharmacistservice.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -469,31 +420,6 @@
                                       
                                         reader.next();
                                     
-                              }  // End of if for expected property start element
-                                
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                            
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","PrescriptionList").equals(reader.getName())){
-                                
-                                      nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                      if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                          object.setPrescriptionList(null);
-                                          reader.next();
-                                            
-                                            reader.next();
-                                          
-                                      }else{
-                                    
-                                                object.setPrescriptionList(prescriptiondiagnosetypes.PrescriptionList.Factory.parse(reader));
-                                              
-                                        reader.next();
-                                    }
                               }  // End of if for expected property start element
                                 
                                 else{

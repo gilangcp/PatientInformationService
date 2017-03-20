@@ -14,26 +14,26 @@ xmlns:pdt="PrescriptionDiagnoseTypes">
     	</xsd:import></xsd:schema>
   </wsdl:types>
   
-  <wsdl:message name="GetPrescriptionAndDiagnosisDetailRequest">
+  <wsdl:message name="GetPrescriptionDetailRequest">
     <wsdl:part name="PatientID" type="xsd:string" />
   </wsdl:message>
   
-  <wsdl:message name="GetPrescriptionAndDiagnosisDetailResponse">
+  <wsdl:message name="GetPrescriptionDetailResponse">
     <wsdl:part name="Prescription" type="pdt:PrescriptionList"/>
   </wsdl:message>
   
   
   <wsdl:portType name="PatientServicePortType">
-    <wsdl:operation name="GetPrescriptionAndDiagnosisDetail">
-      <wsdl:input name="patientID" message="tns:GetPrescriptionAndDiagnosisDetailRequest"/>
-      <wsdl:output message="tns:GetPrescriptionAndDiagnosisDetailResponse"/>
+    <wsdl:operation name="GetPrescriptionDetail">
+      <wsdl:input name="patientID" message="tns:GetPrescriptionDetailRequest"/>
+      <wsdl:output message="tns:GetPrescriptionDetailResponse"/>
     </wsdl:operation>
   </wsdl:portType>
   
   <wsdl:binding name="PatientServiceBinding" type="tns:PatientServicePortType">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="GetPrescriptionAndDiagnosisDetail">
-      <soap:operation soapAction="http://www.example.org/PatientService/GetPrescriptionAndDiagnosisDetail"/>
+    <wsdl:operation name="GetPrescriptionDetail">
+      <soap:operation soapAction="http://localhost:8080/PatientInformationService/services/PatientService-rpc/GetPrescriptionAndDiagnosisDetail"/>
       <wsdl:input>
         <soap:body use="literal" namespace="InvoiceService/"/>
       </wsdl:input>
@@ -46,7 +46,7 @@ xmlns:pdt="PrescriptionDiagnoseTypes">
   
   <wsdl:service name="PatientService-rpc">
     <wsdl:port binding="tns:PatientServiceBinding" name="PatientServicePort">
-      <soap:address location="http://localhost:8080/TrialProjectWS/services/PatientService"/>
+      <soap:address location="http://localhost:8080/PatientInformationService/services/PatientService-rpc"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

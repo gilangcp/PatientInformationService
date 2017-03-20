@@ -6,9 +6,9 @@
         <parameter name="ServiceClass">patientservice.PatientServiceRpcSkeleton</parameter>
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
-        <operation name="GetPrescriptionAndDiagnosisDetail" mep="http://www.w3.org/ns/wsdl/in-out" namespace="PatientService/">
-            <actionMapping>http://www.example.org/PatientService/GetPrescriptionAndDiagnosisDetail</actionMapping>
-            <outputActionMapping>PatientService/PatientServicePortType/GetPrescriptionAndDiagnosisDetailResponse</outputActionMapping>
+        <operation name="GetPrescriptionDetail" mep="http://www.w3.org/ns/wsdl/in-out" namespace="PatientService/">
+            <actionMapping>http://localhost:8080/PatientInformationService/services/PatientService-rpc/GetPrescriptionAndDiagnosisDetail</actionMapping>
+            <outputActionMapping>PatientService/PatientServicePortType/GetPrescriptionDetailResponse</outputActionMapping>
         </operation>
     </service>
 </serviceGroup>

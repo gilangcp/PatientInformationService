@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.4  Built on : Dec 28, 2015 (10:03:39 GMT) --><serviceGroup>
     <service name="PharmacistService-rpc">
         <messageReceivers>
-            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-only" class="pharmacistservice.PharmacistServiceRpcMessageReceiverInOnly"/>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="pharmacistservice.PharmacistServiceRpcMessageReceiverInOut"/>
         </messageReceivers>
         <parameter name="ServiceClass">pharmacistservice.PharmacistServiceRpcSkeleton</parameter>
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
-        <operation name="RequestMedicine" mep="http://www.w3.org/ns/wsdl/in-only" namespace="PharmacistService/">
-            <actionMapping>http://example.org/RequestMedicine</actionMapping>
+        <operation name="RequestMedicine" mep="http://www.w3.org/ns/wsdl/in-out" namespace="PharmacistService/">
+            <actionMapping>http://localhost:8080/PatientInformationService/services/PharmacistService-rpc/RequestMedicine</actionMapping>
+            <outputActionMapping>PharmacistService/PharmacistServicePortType/RequestMedicineResponse</outputActionMapping>
         </operation>
     </service>
 </serviceGroup>

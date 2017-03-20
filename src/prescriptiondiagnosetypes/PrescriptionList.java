@@ -440,7 +440,7 @@
                             if (!"PrescriptionList".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (PrescriptionList)invoiceservice.ExtensionMapper.getTypeObject(
+                                return (PrescriptionList)pharmacistservice.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         

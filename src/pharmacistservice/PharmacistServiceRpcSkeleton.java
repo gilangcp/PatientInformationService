@@ -7,12 +7,7 @@
  */
     package pharmacistservice;
 
-import java.rmi.RemoteException;
-
-import org.apache.axis2.AxisFault;
-
-import cashierservice.NotifyMedicineReady;
-import cashierserviceclient.CashierServiceRpcStub;
+import java.util.concurrent.TimeUnit;
 
 /**
      *  PharmacistServiceRpcSkeleton java skeleton for the axisService
@@ -24,42 +19,26 @@ import cashierserviceclient.CashierServiceRpcStub;
          * Auto generated method signature
          * 
                                      * @param requestMedicine 
-             * @return  
+             * @return requestMedicineResponse 
          */
         
-                 public void requestMedicine
+                 public pharmacistservice.RequestMedicineResponse requestMedicine
                   (
                   pharmacistservice.RequestMedicine requestMedicine
                   )
             {
-                	 //Simulating long running medicine making using Thread & sleep
-                	 new Thread(new Runnable() {
-						@Override
-						public void run() {
-							  try {
-								    Thread.sleep(1000);
-								    
-								    //Calling Cashier Service
-								    try {
-										cashierserviceclient.CashierServiceRpcStub client = new cashierserviceclient.CashierServiceRpcStub();
-										cashierserviceclient.CashierServiceRpcStub.NotifyMedicineReady nm = new cashierserviceclient.CashierServiceRpcStub.NotifyMedicineReady();
-										nm.setPatientId(Integer.valueOf(requestMedicine.getPatientId()));
-										client.notifyMedicineReady(nm);
-								    } catch (AxisFault e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									} catch (RemoteException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-								    
-								  } catch(InterruptedException ex) {
-										ex.printStackTrace();
-								  }
-						}
-                	}).start();
-                
-        }
+                 	try {
+ 						TimeUnit.SECONDS.sleep(5);
+ 					} catch (InterruptedException e) {
+ 						// TODO Auto-generated catch block
+ 						e.printStackTrace();
+ 					}
+
+                 	RequestMedicineResponse res = new RequestMedicineResponse();
+                 	res.setPatientId(requestMedicine.getPatientId());
+                 	return res;
+            
+            }
      
     }
     

@@ -1,55 +1,55 @@
 
 /**
- * NotifyMedicineReady.java
+ * GetPrescriptionDetail.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.4  Built on : Dec 28, 2015 (10:04:10 GMT)
  */
 
             
-                package cashierservice;
+                package invoiceservice;
             
 
             /**
-            *  NotifyMedicineReady bean class
+            *  GetPrescriptionDetail bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class NotifyMedicineReady
+        public  class GetPrescriptionDetail
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "CashierService",
-                "notifyMedicineReady",
-                "ns3");
+                "InvoiceService/",
+                "GetPrescriptionDetail",
+                "ns4");
 
             
 
                         /**
-                        * field for PatientId
+                        * field for PatientID
                         */
 
                         
-                                    protected int localPatientId ;
+                                    protected java.lang.String localPatientID ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return int
+                           * @return java.lang.String
                            */
-                           public  int getPatientId(){
-                               return localPatientId;
+                           public  java.lang.String getPatientID(){
+                               return localPatientID;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param PatientId
+                               * @param param PatientID
                                */
-                               public void setPatientId(int param){
+                               public void setPatientID(java.lang.String param){
                             
-                                            this.localPatientId=param;
+                                            this.localPatientID=param;
                                        
 
                                }
@@ -100,14 +100,14 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"CashierService");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"InvoiceService/");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":notifyMedicineReady",
+                           namespacePrefix+":GetPrescriptionDetail",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "notifyMedicineReady",
+                           "GetPrescriptionDetail",
                            xmlWriter);
                    }
 
@@ -115,15 +115,20 @@
                    }
                
                                     namespace = "";
-                                    writeStartElement(null, namespace, "patientId", xmlWriter);
+                                    writeStartElement(null, namespace, "PatientID", xmlWriter);
                              
-                                               if (localPatientId==java.lang.Integer.MIN_VALUE) {
-                                           
-                                                         writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                                      
-                                               } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPatientId));
-                                               }
+
+                                          if (localPatientID==null){
+                                              // write the nil attribute
+                                              
+                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localPatientID);
+                                            
+                                          }
                                     
                                    xmlWriter.writeEndElement();
                              
@@ -133,8 +138,8 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("CashierService")){
-                return "ns3";
+            if(namespace.equals("InvoiceService/")){
+                return "ns4";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -313,11 +318,11 @@
 
                 
                                       elementList.add(new javax.xml.namespace.QName("",
-                                                                      "patientId"));
+                                                                      "PatientID"));
                                  
-                                elementList.add(
-                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPatientId));
-                            
+                                         elementList.add(localPatientID==null?null:
+                                         org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPatientID));
+                                    
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -342,9 +347,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static NotifyMedicineReady parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            NotifyMedicineReady object =
-                new NotifyMedicineReady();
+        public static GetPrescriptionDetail parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            GetPrescriptionDetail object =
+                new GetPrescriptionDetail();
 
             int event;
             java.lang.String nillableValue = null;
@@ -368,10 +373,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"notifyMedicineReady".equals(type)){
+                            if (!"GetPrescriptionDetail".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (NotifyMedicineReady)cashierservice.ExtensionMapper.getTypeObject(
+                                return (GetPrescriptionDetail)invoiceservice.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -396,7 +401,7 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","patientId").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","PatientID").equals(reader.getName())){
                                 
                                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                        if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
@@ -404,14 +409,12 @@
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setPatientId(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                              object.setPatientID(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                             
                                        } else {
                                            
                                            
-                                                   object.setPatientId(java.lang.Integer.MIN_VALUE);
-                                               
                                            reader.getElementText(); // throw away text nodes if any.
                                        }
                                       
